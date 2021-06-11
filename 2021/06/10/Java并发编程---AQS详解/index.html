@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.3k 字
+      3.4k 字
     </span>
   
 
@@ -308,6 +308,9 @@
 <p>同步队列的头节点是当前获取到同步状态的节点，获取同步状态失败的线程将会被构造成一个节点（独占式或共享式），然后节点会被<strong>线程安全</strong>地添加到同步队列的尾部，随后线程会阻塞。</p>
 <p>头节点释放同步状态时会唤醒后继节点，后继节点就可以继续尝试获取同步状态了（后继节点不一定一下就获取成功，因为此时还有同步队列之外的线程参与竞争）。</p>
 <p>当我们使用AQS构建自定义同步组件时，只需要重写tryAcquire、tryRelease、tryAcquireShared、tryReleaseShared等方法来决定如何获取和释放同步状态。至于线程是如何排队的，如何阻塞和唤醒线程，如何保证线程安全，AQS在上层已经帮我们实现了。</p>
+<h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5 参考"></a>5 参考</h2><ul>
+<li>《Java并发编程的艺术》</li>
+</ul>
 
             </div>
             <hr>
