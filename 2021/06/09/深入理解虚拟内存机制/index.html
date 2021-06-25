@@ -18,7 +18,7 @@
   <meta name="author" content="yanchao">
   <meta name="keywords" content="">
   
-  <title>操作系统内存管理---虚拟内存详解 - chalesyan的技术博客</title>
+  <title>深入理解虚拟内存机制 - chalesyan的技术博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="操作系统内存管理---虚拟内存详解">
+            <span class="h2" id="subtitle" title="深入理解虚拟内存机制">
               
             </span>
 
@@ -233,7 +233,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">操作系统内存管理---虚拟内存详解</h1>
+            <h1 style="display: none">深入理解虚拟内存机制</h1>
             
             <div class="markdown-body">
               <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><p>虚拟内存是现代操作系统中存储器管理的一项重要技术，实现了内存扩充功能。但并不是从物理上实际扩大内存容量，而是从逻辑上实现内存容量的扩充。这样计算机就可以运行一些比实际的物理内存大的应用程序。</p>
@@ -294,7 +294,7 @@
 <p>在虚拟地址空间远大于物理内存时，倒排页表节省了大量的空间，但是它也有不足：从虚拟地址到物理地址的转换会变得很困难。当进程n访问虚拟页面p时，硬件不再能够把p当做索引来查找物理页框了，而是要搜索整个倒排页表，因为基于倒排页表的设计，MMU并不知道是否会发生缺页，所以必须要进行全表扫描，这样就会很低效。</p>
 <p>可以稍作改进，比如使用TLB记录所有频繁使用的页面，TLB命中的情况下就可能跟普通的页表一样快。TLB不命中的情况下，还是需要扫描整个倒排页表。</p>
 <p>线性扫描的方式非常低效，一般的倒排页表会基于哈希表来实现，以物理页框号为key，（虚拟页号，物理页框号）为value，再实现一个哈希函数，以虚拟地址为入参，假设倒排页表的大小为size，则哈希函数最后输出的哈希值在[0,size-1]区间内，具有相同哈希值的虚拟页面被链接在一起。如果哈希表中的槽数与机器中物理页面数一样多，那么哈希表的冲突链的平均长度将会是一个表项长度，这将会大大提高映射速度。一旦页框号被找到，新的（虚拟页号，物理页框号）就会被装载到TLB中。</p>
-<h2 id="7-总结"><a href="#7-总结" class="headerlink" title="7 总结"></a>7 总结</h2><p>虚拟内存对于计算机系统来说非常重要，目前还只是学习了虚拟内存技术的几个核心概念，分页、页表、地址变换等。关于操作系统的内存管理机制还有许多部分没有学习，以后慢慢看书沉淀。</p>
+<h2 id="7-总结"><a href="#7-总结" class="headerlink" title="7 总结"></a>7 总结</h2><p>虚拟内存对于计算机系统来说非常重要，目前学习了虚拟内存技术的几个核心概念，分页、页表、地址变换等。关于操作系统内存管理方面的知识，还有许多部分没有学习，以后慢慢看书补充。</p>
 <h2 id="8-参考"><a href="#8-参考" class="headerlink" title="8 参考"></a>8 参考</h2><ul>
 <li>《计算机操作系统》</li>
 <li>《现代操作系统》</li>
@@ -317,10 +317,6 @@
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/">虚拟内存</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">内存管理</a>
                     
                   </div>
                 
